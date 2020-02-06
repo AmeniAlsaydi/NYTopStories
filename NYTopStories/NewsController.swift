@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NewsController.swift
 //  NYTopStories
 //
 //  Created by Amy Alsaydi on 2/6/20.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class NewsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
+    }
+    
 
 }
-
