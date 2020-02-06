@@ -20,6 +20,7 @@
 		B7F81EA423EC854800A4B257 /* TopStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F81EA323EC854800A4B257 /* TopStory.swift */; };
 		B7F81EA723EC865700A4B257 /* TopStoriesApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F81EA623EC865700A4B257 /* TopStoriesApiClient.swift */; };
 		B7F81EAA23EC869800A4B257 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7F81EA923EC869800A4B257 /* ImageKit */; };
+		B7F81EAC23EC8BDF00A4B257 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F81EAB23EC8BDF00A4B257 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B7F81E9D23EC7E0100A4B257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7F81EA323EC854800A4B257 /* TopStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStory.swift; sourceTree = "<group>"; };
 		B7F81EA623EC865700A4B257 /* TopStoriesApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesApiClient.swift; sourceTree = "<group>"; };
+		B7F81EAB23EC8BDF00A4B257 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				B764E44123EC6A1F00DA6277 /* SceneDelegate.swift */,
 				B764E44823EC6A2100DA6277 /* Assets.xcassets */,
 				B764E44A23EC6A2100DA6277 /* LaunchScreen.storyboard */,
+				B7F81EAB23EC8BDF00A4B257 /* Config.swift */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				B7656C2423EC6C2E0017A8FB /* TopStoriesTabController.swift in Sources */,
 				B7F81EA423EC854800A4B257 /* TopStory.swift in Sources */,
 				B764E44223EC6A1F00DA6277 /* SceneDelegate.swift in Sources */,
+				B7F81EAC23EC8BDF00A4B257 /* Config.swift in Sources */,
 				B7F81EA723EC865700A4B257 /* TopStoriesApiClient.swift in Sources */,
 				B7656C2A23EC6D870017A8FB /* SavedController.swift in Sources */,
 			);
