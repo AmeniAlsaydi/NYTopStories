@@ -23,7 +23,6 @@ class NewsController: UIViewController {
         newsView.collectionView.dataSource = self
         // UICollectionViewCell.self the .self means not an instance but the cell itself
         newsView.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "articleCell")
-
     }
 
 }

@@ -16,7 +16,19 @@
 		B7656C2623EC6CE10017A8FB /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7656C2523EC6CE10017A8FB /* NewsController.swift */; };
 		B7656C2823EC6D750017A8FB /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7656C2723EC6D750017A8FB /* SettingsController.swift */; };
 		B7656C2A23EC6D870017A8FB /* SavedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7656C2923EC6D870017A8FB /* SavedController.swift */; };
+		B7F81E9C23EC7E0100A4B257 /* NYTopStoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F81E9B23EC7E0100A4B257 /* NYTopStoriesTests.swift */; };
+		B7F81EA423EC854800A4B257 /* TopStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F81EA323EC854800A4B257 /* TopStory.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B7F81E9E23EC7E0100A4B257 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B764E43423EC6A1F00DA6277 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B764E43B23EC6A1F00DA6277;
+			remoteInfo = NYTopStories;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B742E7D223EC71A3002CE143 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
@@ -30,10 +42,21 @@
 		B7656C2523EC6CE10017A8FB /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
 		B7656C2723EC6D750017A8FB /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		B7656C2923EC6D870017A8FB /* SavedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedController.swift; sourceTree = "<group>"; };
+		B7F81E9923EC7E0100A4B257 /* NYTopStoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYTopStoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7F81E9B23EC7E0100A4B257 /* NYTopStoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTopStoriesTests.swift; sourceTree = "<group>"; };
+		B7F81E9D23EC7E0100A4B257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7F81EA323EC854800A4B257 /* TopStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B764E43923EC6A1F00DA6277 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7F81E9623EC7E0100A4B257 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				B764E43E23EC6A1F00DA6277 /* NYTopStories */,
+				B7F81E9A23EC7E0100A4B257 /* NYTopStoriesTests */,
 				B764E43D23EC6A1F00DA6277 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				B764E43C23EC6A1F00DA6277 /* NYTopStories.app */,
+				B7F81E9923EC7E0100A4B257 /* NYTopStoriesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,6 +99,7 @@
 				B7656C2B23EC6D8F0017A8FB /* Controllers */,
 				B7656C2C23EC6E050017A8FB /* Supporting files */,
 				B7656C2323EC6C2E0017A8FB /* TopStoriesTabController.swift */,
+				B7F81EA323EC854800A4B257 /* TopStory.swift */,
 				B764E44D23EC6A2100DA6277 /* Info.plist */,
 			);
 			path = NYTopStories;
@@ -100,6 +126,15 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
+		B7F81E9A23EC7E0100A4B257 /* NYTopStoriesTests */ = {
+			isa = PBXGroup;
+			children = (
+				B7F81E9B23EC7E0100A4B257 /* NYTopStoriesTests.swift */,
+				B7F81E9D23EC7E0100A4B257 /* Info.plist */,
+			);
+			path = NYTopStoriesTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,6 +155,24 @@
 			productReference = B764E43C23EC6A1F00DA6277 /* NYTopStories.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B7F81E9823EC7E0100A4B257 /* NYTopStoriesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7F81EA223EC7E0100A4B257 /* Build configuration list for PBXNativeTarget "NYTopStoriesTests" */;
+			buildPhases = (
+				B7F81E9523EC7E0100A4B257 /* Sources */,
+				B7F81E9623EC7E0100A4B257 /* Frameworks */,
+				B7F81E9723EC7E0100A4B257 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7F81E9F23EC7E0100A4B257 /* PBXTargetDependency */,
+			);
+			name = NYTopStoriesTests;
+			productName = NYTopStoriesTests;
+			productReference = B7F81E9923EC7E0100A4B257 /* NYTopStoriesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -132,6 +185,10 @@
 				TargetAttributes = {
 					B764E43B23EC6A1F00DA6277 = {
 						CreatedOnToolsVersion = 11.2;
+					};
+					B7F81E9823EC7E0100A4B257 = {
+						CreatedOnToolsVersion = 11.2;
+						TestTargetID = B764E43B23EC6A1F00DA6277;
 					};
 				};
 			};
@@ -149,6 +206,7 @@
 			projectRoot = "";
 			targets = (
 				B764E43B23EC6A1F00DA6277 /* NYTopStories */,
+				B7F81E9823EC7E0100A4B257 /* NYTopStoriesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -160,6 +218,13 @@
 			files = (
 				B764E44C23EC6A2100DA6277 /* LaunchScreen.storyboard in Resources */,
 				B764E44923EC6A2100DA6277 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7F81E9723EC7E0100A4B257 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,12 +240,29 @@
 				B764E44023EC6A1F00DA6277 /* AppDelegate.swift in Sources */,
 				B742E7D323EC71A3002CE143 /* NewsView.swift in Sources */,
 				B7656C2423EC6C2E0017A8FB /* TopStoriesTabController.swift in Sources */,
+				B7F81EA423EC854800A4B257 /* TopStory.swift in Sources */,
 				B764E44223EC6A1F00DA6277 /* SceneDelegate.swift in Sources */,
 				B7656C2A23EC6D870017A8FB /* SavedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7F81E9523EC7E0100A4B257 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7F81E9C23EC7E0100A4B257 /* NYTopStoriesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7F81E9F23EC7E0100A4B257 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B764E43B23EC6A1F00DA6277 /* NYTopStories */;
+			targetProxy = B7F81E9E23EC7E0100A4B257 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B764E44A23EC6A2100DA6277 /* LaunchScreen.storyboard */ = {
@@ -344,6 +426,46 @@
 			};
 			name = Release;
 		};
+		B7F81EA023EC7E0100A4B257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WDT827LK75;
+				INFOPLIST_FILE = NYTopStoriesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Amy.NYTopStoriesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYTopStories.app/NYTopStories";
+			};
+			name = Debug;
+		};
+		B7F81EA123EC7E0100A4B257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WDT827LK75;
+				INFOPLIST_FILE = NYTopStoriesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Amy.NYTopStoriesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NYTopStories.app/NYTopStories";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -361,6 +483,15 @@
 			buildConfigurations = (
 				B764E45123EC6A2100DA6277 /* Debug */,
 				B764E45223EC6A2100DA6277 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7F81EA223EC7E0100A4B257 /* Build configuration list for PBXNativeTarget "NYTopStoriesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7F81EA023EC7E0100A4B257 /* Debug */,
+				B7F81EA123EC7E0100A4B257 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
