@@ -31,9 +31,7 @@ class TopStoriesTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = #colorLiteral(red: 0.949457705, green: 0.6923578978, blue: 0.7100731134, alpha: 1)
-        
-        viewControllers = [newsVC, savedVC, settingsVC]
+        viewControllers = [UINavigationController(rootViewController: newsVC), UINavigationController(rootViewController: savedVC), UINavigationController(rootViewController: settingsVC)]
         
     }
     

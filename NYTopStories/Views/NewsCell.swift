@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import ImageKit
 
 class NewsCell: UICollectionViewCell {
     
     // image view of the article
     // title of article
-    //
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        newsimageView.clipsToBounds = true
+        newsimageView.layer.cornerRadius = 13
+        
+    }
     
-    private lazy var newsimageView: UIImageView = {
+    public lazy var newsimageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "photo")
         image.contentMode = .scaleAspectFill
@@ -59,10 +65,11 @@ class NewsCell: UICollectionViewCell {
         addSubview(newsimageView)
         newsimageView.translatesAutoresizingMaskIntoConstraints = false
         
+        
         NSLayoutConstraint.activate([
             newsimageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             newsimageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            newsimageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3),
+            newsimageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
             newsimageView.widthAnchor.constraint(equalTo: newsimageView.heightAnchor)
         ])
     }
@@ -90,6 +97,28 @@ class NewsCell: UICollectionViewCell {
         ])
         
         
+    }
+    
+    public func configureCell(_ article: Article) {
+        
+        articleTitle.text = article.title
+        abstactHeadline.text = article.abstract
+        guard let url = article.getArticleImageURL(for: .thumbLarge) else {
+            
+            return 
+        }
+        
+        newsimageView.getImage(with: url) { (results) in
+            switch results {
+            case .failure(let appError):
+                print("error geting image: \(appError)")
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self.newsimageView.image = image
+                }
+            }
+        }
+    
     }
     
 }

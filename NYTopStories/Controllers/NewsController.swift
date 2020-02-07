@@ -12,9 +12,11 @@ class NewsController: UIViewController {
     
     private var newsView = NewsView()
     
-    private var stories = [TopStories]() {
+    private var newsArticles = [Article]() {
         didSet {
-            newsView.collectionView.reloadData()
+            DispatchQueue.main.async {
+                self.newsView.collectionView.reloadData()
+            }
         }
     }
 
@@ -31,31 +33,34 @@ class NewsController: UIViewController {
         newsView.collectionView.register(NewsCell.self, forCellWithReuseIdentifier: "articleCell") 
         fetchStories()
     }
-
-}
-
-private func fetchStories() {
-    NYTopStoriesApiClient.fetchTopStories(for: "Techonology") { (result) in
-        switch result {
-        case .failure(let appError):
-            print(appError)
-        case .success(let articles):
-            
-            print("found \(articles.count)")
+    
+    private func fetchStories() {
+        NYTopStoriesApiClient.fetchTopStories(for: "Techonology") { [weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                print(appError)
+            case .success(let articles):
+                self?.newsArticles = articles
+            }
         }
     }
 }
+
+
+
 extension NewsController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return newsArticles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? NewsCell else {
             fatalError("could not down cast to newsCell")
         }
+        let article = newsArticles[indexPath.row]
+        cell.configureCell(article)
+        cell.backgroundColor = .white
         
-        // cell.backgroundColor = .white
         return cell
     }
 }
@@ -74,6 +79,15 @@ extension NewsController: UICollectionViewDelegateFlowLayout {
         let itemHeight = maxSize.height * 0.20
         
         return CGSize(width: itemWidth, height: itemHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let article = newsArticles[indexPath.row]
+        
+        let articleDVC = ArticleViewController()
+        articleDVC.article = article
+        
+        navigationController?.pushViewController(articleDVC, animated: true)
     }
     
 }
