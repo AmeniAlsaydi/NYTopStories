@@ -11,6 +11,12 @@ import UIKit
 class NewsController: UIViewController {
     
     private var newsView = NewsView()
+    
+    private var stories = [TopStories]() {
+        didSet {
+            newsView.collectionView.reloadData()
+        }
+    }
 
     override func loadView() {
         view = newsView
@@ -22,20 +28,34 @@ class NewsController: UIViewController {
         newsView.collectionView.delegate = self
         newsView.collectionView.dataSource = self
         // UICollectionViewCell.self the .self means not an instance but the cell itself
-        newsView.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "articleCell")
+        newsView.collectionView.register(NewsCell.self, forCellWithReuseIdentifier: "articleCell") 
+        fetchStories()
     }
 
 }
 
+private func fetchStories() {
+    NYTopStoriesApiClient.fetchTopStories(for: "Techonology") { (result) in
+        switch result {
+        case .failure(let appError):
+            print(appError)
+        case .success(let articles):
+            
+            print("found \(articles.count)")
+        }
+    }
+}
 extension NewsController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? NewsCell else {
+            fatalError("could not down cast to newsCell")
+        }
         
-        cell.backgroundColor = .white
+        // cell.backgroundColor = .white
         return cell
     }
 }
