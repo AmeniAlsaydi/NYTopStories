@@ -95,6 +95,7 @@
 				B7F81EEC23F1B34B00A4B257 /* EmptyView.swift */,
 				B7F81EEE23F1BBE500A4B257 /* SavedArticleCell.swift */,
 				B7F81EEA23F1AC2300A4B257 /* SavedArticleView.swift */,
+				B7F81EF023F1CDE700A4B257 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				B7656C2323EC6C2E0017A8FB /* TopStoriesTabController.swift */,
-				B7F81EF023F1CDE700A4B257 /* SettingsView.swift */,
 				B7656C2523EC6CE10017A8FB /* NewsController.swift */,
 				B7656C2923EC6D870017A8FB /* SavedController.swift */,
 				B7656C2723EC6D750017A8FB /* SettingsController.swift */,

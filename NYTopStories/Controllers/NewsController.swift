@@ -20,8 +20,17 @@ class NewsController: UIViewController {
     private var newsArticles = [Article]() {
         didSet {
             DispatchQueue.main.async {
+                
                 self.newsView.collectionView.reloadData()
+                self.navigationItem.title = self.sectionName
             }
+        }
+    }
+    
+    private var sectionName = "Technology" {
+        didSet {
+
+           //  queryAPI(for: sectionName)
         }
     }
 
@@ -36,11 +45,32 @@ class NewsController: UIViewController {
         newsView.collectionView.dataSource = self
         // UICollectionViewCell.self the .self means not an instance but the cell itself
         newsView.collectionView.register(NewsCell.self, forCellWithReuseIdentifier: "articleCell") 
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         fetchStories()
     }
     
     private func fetchStories() {
-        NYTopStoriesApiClient.fetchTopStories(for: "Techonology") { [weak self] (result) in
+        // retrieve section name from user defaults
+        if let sectionName = UserDefaults.standard.object(forKey: UserKey.sectionName) as? String {
+            // self.sectionName = sectionName
+            if sectionName != self.sectionName {
+                // make a new query
+                queryAPI(for: sectionName)
+                self.sectionName = sectionName
+            }
+        } else {
+            // use the default section name
+            queryAPI(for: sectionName)
+        }
+        
+    }
+    
+    private func queryAPI(for section: String) {
+        
+        NYTopStoriesApiClient.fetchTopStories(for: section) { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 print(appError)

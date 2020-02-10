@@ -125,6 +125,16 @@ extension SavedController: UICollectionViewDelegateFlowLayout {
         let itemWidth = (maxSize.width - totalSpacing) / numberOfItems
         return CGSize(width: itemWidth, height: itemHeight)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // programmatically set up a segue
+        let  detailVC = ArticleViewController()
+        let article = savedArticles[indexPath.row]
+        detailVC.article = article
+        detailVC.datapersistance = datapersistance
+        
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension SavedController: DataPersistenceDelegate {
