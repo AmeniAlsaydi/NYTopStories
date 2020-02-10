@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import DataPersistence
 
 class NewsController: UIViewController {
     
     private var newsView = NewsView()
+    
+    public var datapersistance: DataPersistence<Article>!
+    
+    
     
     private var newsArticles = [Article]() {
         didSet {
@@ -86,6 +91,7 @@ extension NewsController: UICollectionViewDelegateFlowLayout {
         
         let articleDVC = ArticleViewController()
         articleDVC.article = article
+        articleDVC.datapersistance = datapersistance
         
         navigationController?.pushViewController(articleDVC, animated: true)
     }
