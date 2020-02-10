@@ -44,7 +44,6 @@ class SavedController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.949457705, green: 0.6923578978, blue: 0.7100731134, alpha: 1)
         loadSavedArticles()
 
         savedArticleView.collectionView.register(SavedArticleCell.self, forCellWithReuseIdentifier: "savedArticleCell")
@@ -58,10 +57,7 @@ class SavedController: UIViewController {
             } catch {
                 print("could not load saved articles: \(error)")
             }
-
     }
-    
-
 }
 
 extension SavedController: UICollectionViewDataSource {
@@ -85,14 +81,37 @@ extension SavedController: SavedArticleCellDelegate {
     func didSelectMoreButton(_ savedArticleCell: SavedArticleCell, article: Article) {
        // present action sheet
         
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: nil)
+       
         
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
+            alertAction in self.deleteArticle(article)
+            
+            //self.savedArticles.remove(at: index)
+            
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
         present(alertController,animated: true)
         
     }
     
+    private func deleteArticle(_ article: Article) {
+        
+        guard let index = savedArticles.firstIndex(of: article) else {
+                   fatalError("no index")
+               }
+        // deletes from doc directory
+        
+        do {
+            try datapersistance.deleteItem(at: index)
+        } catch {
+            print("error deleting article \(error)")
+        }
+    }
     
 }
 
@@ -115,7 +134,7 @@ extension SavedController: DataPersistenceDelegate {
     }
     
     func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-        print("item was deleted")
+        loadSavedArticles()
     }
 }
 

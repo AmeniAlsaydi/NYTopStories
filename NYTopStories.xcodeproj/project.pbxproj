@@ -27,6 +27,7 @@
 		B7F81EEB23F1AC2300A4B257 /* SavedArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F81EEA23F1AC2300A4B257 /* SavedArticleView.swift */; };
 		B7F81EED23F1B34B00A4B257 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F81EEC23F1B34B00A4B257 /* EmptyView.swift */; };
 		B7F81EEF23F1BBE500A4B257 /* SavedArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F81EEE23F1BBE500A4B257 /* SavedArticleCell.swift */; };
+		B7F81EF123F1CDE700A4B257 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F81EF023F1CDE700A4B257 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		B7F81EEA23F1AC2300A4B257 /* SavedArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticleView.swift; sourceTree = "<group>"; };
 		B7F81EEC23F1B34B00A4B257 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		B7F81EEE23F1BBE500A4B257 /* SavedArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticleCell.swift; sourceTree = "<group>"; };
+		B7F81EF023F1CDE700A4B257 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				B7656C2323EC6C2E0017A8FB /* TopStoriesTabController.swift */,
+				B7F81EF023F1CDE700A4B257 /* SettingsView.swift */,
 				B7656C2523EC6CE10017A8FB /* NewsController.swift */,
 				B7656C2923EC6D870017A8FB /* SavedController.swift */,
 				B7656C2723EC6D750017A8FB /* SettingsController.swift */,
@@ -288,6 +291,7 @@
 				B7F81EC523EDD15900A4B257 /* ArticleDetailView.swift in Sources */,
 				B7F81EC223EDCBB200A4B257 /* ArticleViewController.swift in Sources */,
 				B7656C2823EC6D750017A8FB /* SettingsController.swift in Sources */,
+				B7F81EF123F1CDE700A4B257 /* SettingsView.swift in Sources */,
 				B764E44023EC6A1F00DA6277 /* AppDelegate.swift in Sources */,
 				B7F81EEB23F1AC2300A4B257 /* SavedArticleView.swift in Sources */,
 				B742E7D323EC71A3002CE143 /* NewsView.swift in Sources */,
