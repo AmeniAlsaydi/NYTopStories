@@ -44,7 +44,8 @@ class NewsController: UIViewController {
         newsView.collectionView.delegate = self
         newsView.collectionView.dataSource = self
         // UICollectionViewCell.self the .self means not an instance but the cell itself
-        newsView.collectionView.register(NewsCell.self, forCellWithReuseIdentifier: "articleCell") 
+        newsView.collectionView.register(NewsCell.self, forCellWithReuseIdentifier: "articleCell")
+        newsView.searchBar.delegate = self
         
     }
     
@@ -60,6 +61,8 @@ class NewsController: UIViewController {
                 // make a new query
                 queryAPI(for: sectionName)
                 self.sectionName = sectionName
+            } else {
+                queryAPI(for: sectionName)
             }
         } else {
             // use the default section name
@@ -126,4 +129,27 @@ extension NewsController: UICollectionViewDelegateFlowLayout {
         navigationController?.pushViewController(articleDVC, animated: true)
     }
     
+    // dimiss keyboard with scroll
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if newsView.searchBar.isFirstResponder {
+            newsView.searchBar.resignFirstResponder()
+        }
+    }
+    
+}
+
+extension NewsController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            fetchStories()
+            return
+        }
+        newsArticles = newsArticles.filter{
+            $0.title.lowercased().contains(searchText.lowercased())
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        resignFirstResponder()
+    }
 }
