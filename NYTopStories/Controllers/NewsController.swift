@@ -13,9 +13,19 @@ class NewsController: UIViewController {
     
     private var newsView = NewsView()
     
-    public var datapersistance: DataPersistence<Article>!
+    private var datapersistance: DataPersistence<Article>
+    
+    // intializer
+    
+    init(_ dataPersistance: DataPersistence<Article>) {
+        self.datapersistance = dataPersistance
+        super.init(nibName: nil, bundle: nil)
+    }
     
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) - error")
+    }
     
     private var newsArticles = [Article]() {
         didSet {
@@ -122,9 +132,7 @@ extension NewsController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let article = newsArticles[indexPath.row]
         
-        let articleDVC = ArticleViewController()
-        articleDVC.article = article
-        articleDVC.datapersistance = datapersistance
+        let articleDVC = ArticleViewController(datapersistance, article: article)
         
         navigationController?.pushViewController(articleDVC, animated: true)
     }

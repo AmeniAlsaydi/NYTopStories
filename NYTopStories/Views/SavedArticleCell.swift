@@ -36,6 +36,7 @@ class SavedArticleCell: UICollectionViewCell {
         label.isUserInteractionEnabled = true
         return label
     }()
+    
     private var isShowingImage = false
     
     private lazy var longPressedGesture: UILongPressGestureRecognizer = {

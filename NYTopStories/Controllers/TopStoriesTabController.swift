@@ -17,16 +17,14 @@ class TopStoriesTabController: UITabBarController {
     
 
     private lazy var newsVC: NewsController = {
-       let vc = NewsController()
-         vc.datapersistance = datapersistance
+       let vc = NewsController(datapersistance)
+         //vc.datapersistance = datapersistance
         vc.tabBarItem = UITabBarItem(title: "News", image: UIImage(systemName: "eyeglasses"), tag: 0)
         return vc
     }()
 
     private lazy var savedVC: SavedController = {
-       let vc = SavedController()
-        vc.datapersistance = datapersistance
-        vc.datapersistance.delegate = vc
+       let vc = SavedController(datapersistance)
         vc.tabBarItem = UITabBarItem(title: "Read Later", image: UIImage(systemName: "folder"), tag: 1)
         return vc
     }()

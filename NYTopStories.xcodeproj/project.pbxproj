@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B742E7D323EC71A3002CE143 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B742E7D223EC71A3002CE143 /* NewsView.swift */; };
+		B74BACA123F6F117002AFCA5 /* ZoomImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74BACA023F6F117002AFCA5 /* ZoomImage.storyboard */; };
+		B74BACA323F6F14F002AFCA5 /* ZoomImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74BACA223F6F14F002AFCA5 /* ZoomImageController.swift */; };
 		B764E44023EC6A1F00DA6277 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764E43F23EC6A1F00DA6277 /* AppDelegate.swift */; };
 		B764E44223EC6A1F00DA6277 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764E44123EC6A1F00DA6277 /* SceneDelegate.swift */; };
 		B764E44923EC6A2100DA6277 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B764E44823EC6A2100DA6277 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		B742E7D223EC71A3002CE143 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		B74BACA023F6F117002AFCA5 /* ZoomImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ZoomImage.storyboard; sourceTree = "<group>"; };
+		B74BACA223F6F14F002AFCA5 /* ZoomImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomImageController.swift; sourceTree = "<group>"; };
 		B764E43C23EC6A1F00DA6277 /* NYTopStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTopStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B764E43F23EC6A1F00DA6277 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B764E44123EC6A1F00DA6277 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				B7656C2923EC6D870017A8FB /* SavedController.swift */,
 				B7656C2723EC6D750017A8FB /* SettingsController.swift */,
 				B7F81EC123EDCBB200A4B257 /* ArticleViewController.swift */,
+				B74BACA223F6F14F002AFCA5 /* ZoomImageController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				B764E43F23EC6A1F00DA6277 /* AppDelegate.swift */,
+				B74BACA023F6F117002AFCA5 /* ZoomImage.storyboard */,
 				B764E44123EC6A1F00DA6277 /* SceneDelegate.swift */,
 				B764E44823EC6A2100DA6277 /* Assets.xcassets */,
 				B764E44A23EC6A2100DA6277 /* LaunchScreen.storyboard */,
@@ -267,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B74BACA123F6F117002AFCA5 /* ZoomImage.storyboard in Resources */,
 				B764E44C23EC6A2100DA6277 /* LaunchScreen.storyboard in Resources */,
 				B764E44923EC6A2100DA6277 /* Assets.xcassets in Resources */,
 			);
@@ -292,6 +299,7 @@
 				B7F81EC223EDCBB200A4B257 /* ArticleViewController.swift in Sources */,
 				B7656C2823EC6D750017A8FB /* SettingsController.swift in Sources */,
 				B7F81EF123F1CDE700A4B257 /* SettingsView.swift in Sources */,
+				B74BACA323F6F14F002AFCA5 /* ZoomImageController.swift in Sources */,
 				B764E44023EC6A1F00DA6277 /* AppDelegate.swift in Sources */,
 				B7F81EEB23F1AC2300A4B257 /* SavedArticleView.swift in Sources */,
 				B742E7D323EC71A3002CE143 /* NewsView.swift in Sources */,

@@ -28,12 +28,6 @@ class EmptyView: UIView {
         return label
     }()
 
-//    override init(frame: CGRect) {
-//        super.init(frame: UIScreen.main.bounds)
-//        commonInit()
-//    }
-    
-    // why is this not an override of the init func 
     
     init(title: String, message: String) {
         super.init(frame: UIScreen.main.bounds)

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Zoom Image Controller-->
+        <scene sceneID="l9S-Fz-NR7">
+            <objects>
+                <viewController storyboardIdentifier="ZoomImageController" id="IU5-zQ-J5R" customClass="ZoomImageController" customModule="NYTopStories" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ncV-LQ-6Ui">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poQ-k4-eWk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSw-9F-AmH" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PBK-Wq-2cu">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="PBK-Wq-2cu" firstAttribute="top" secondItem="lSw-9F-AmH" secondAttribute="top" id="HFy-kO-hoP"/>
+                                            <constraint firstAttribute="trailing" secondItem="PBK-Wq-2cu" secondAttribute="trailing" id="I3U-w7-ra4"/>
+                                            <constraint firstItem="PBK-Wq-2cu" firstAttribute="leading" secondItem="lSw-9F-AmH" secondAttribute="leading" id="SYw-V2-VUU"/>
+                                            <constraint firstAttribute="bottom" secondItem="PBK-Wq-2cu" secondAttribute="bottom" id="UlG-aR-Nto"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="lSw-9F-AmH" firstAttribute="leading" secondItem="poQ-k4-eWk" secondAttribute="leading" id="8fU-cN-b7W"/>
+                                    <constraint firstItem="lSw-9F-AmH" firstAttribute="width" secondItem="poQ-k4-eWk" secondAttribute="width" id="Jbn-D8-D9D"/>
+                                    <constraint firstItem="lSw-9F-AmH" firstAttribute="height" secondItem="poQ-k4-eWk" secondAttribute="height" id="TZJ-r0-CBa"/>
+                                    <constraint firstAttribute="bottom" secondItem="lSw-9F-AmH" secondAttribute="bottom" id="g3b-wA-FBy"/>
+                                    <constraint firstItem="lSw-9F-AmH" firstAttribute="top" secondItem="poQ-k4-eWk" secondAttribute="top" id="ydt-iU-Ymk"/>
+                                    <constraint firstAttribute="trailing" secondItem="lSw-9F-AmH" secondAttribute="trailing" id="zvr-A0-4DW"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="hdy-mS-m3C"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="gGC-bi-i4o"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="poQ-k4-eWk" firstAttribute="leading" secondItem="Puq-Q3-xc6" secondAttribute="leading" id="Ghg-KW-TeK"/>
+                            <constraint firstAttribute="bottom" secondItem="poQ-k4-eWk" secondAttribute="bottom" id="Kn8-3m-jhv"/>
+                            <constraint firstItem="poQ-k4-eWk" firstAttribute="top" secondItem="ncV-LQ-6Ui" secondAttribute="top" id="QDG-Ky-X4P"/>
+                            <constraint firstItem="poQ-k4-eWk" firstAttribute="trailing" secondItem="Puq-Q3-xc6" secondAttribute="trailing" id="aqU-Bv-iXv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Puq-Q3-xc6"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="PBK-Wq-2cu" id="JtL-Ik-06A"/>
+                        <outlet property="scrollView" destination="poQ-k4-eWk" id="ObI-S8-zUp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1qf-95-lcC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.043478260869566" y="69.642857142857139"/>
+        </scene>
+    </scenes>
+</document>

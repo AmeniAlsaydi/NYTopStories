@@ -13,9 +13,27 @@ import DataPersistence
 class ArticleViewController: UIViewController {
     
     private let detailView = ArticleDetailView()
-    public var datapersistance: DataPersistence<Article>!
+    private var datapersistence: DataPersistence<Article>
+    private var article: Article
     
-    public var article: Article?
+    private lazy var tapGesture: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer()
+        gesture.addTarget(self, action: #selector(didTap(_:)))
+        return gesture
+    }()
+    
+    
+    // initializer
+    
+    init(_ datapersistence: DataPersistence<Article>, article: Article) {
+        self.datapersistence = datapersistence
+        self.article = article
+        super.init(nibName: nil, bundle: nil) // since this controller is inheriting
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = detailView
@@ -27,11 +45,28 @@ class ArticleViewController: UIViewController {
         view.backgroundColor = .systemGroupedBackground
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(saveArticleButtonPressed(_:)))
+    
+        // set up gesture
+        detailView.newsimageView.isUserInteractionEnabled = true // by default image view and label is false
+        detailView.newsimageView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func didTap(_ gesture: UITapGestureRecognizer) {
+        
+        let image = detailView.newsimageView.image ?? UIImage()
+        // we need to get an instance of the zoomImageVC from storyboard
+        
+        let zoomImageStoryboard = UIStoryboard(name: "ZoomImage", bundle: nil)
+        
+        let zoomImageVC = zoomImageStoryboard.instantiateViewController(identifier: "ZoomImageController") { coder in
+            return ZoomImageController(coder: coder, image: image)
+        }
+        present(zoomImageVC, animated: true)
     }
    
     private func updateUI() {
-        guard let article = article, let url = article.getArticleImageURL(for: .superJumbo) else {
-            fatalError("check didSelect - no article was passed")
+        guard let url = article.getArticleImageURL(for: .superJumbo) else {
+            fatalError("issue with url for image")
         }
         
         
@@ -54,10 +89,9 @@ class ArticleViewController: UIViewController {
     
     @objc func saveArticleButtonPressed(_ sender: UIBarButtonItem) {
         sender.image = UIImage(systemName: "bookmark.fill")
-        
-        guard let article = article else { return }
+       
         do {
-            try datapersistance.createItem(article)
+            try datapersistence.createItem(article)
             
         } catch {
             print("error saving article \(error)")

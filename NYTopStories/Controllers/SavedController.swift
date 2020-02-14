@@ -13,7 +13,7 @@ class SavedController: UIViewController {
     
     private let savedArticleView = SavedArticleView()
 
-    public var datapersistance: DataPersistence<Article>!
+    private var datapersistance: DataPersistence<Article>
     
     /*
      TODO
@@ -24,6 +24,18 @@ class SavedController: UIViewController {
      - create an array of savedArticle = [Article]
      - reload collection view in disSet of savedArticle array
      */
+    
+    init(_ datapersistence: DataPersistence<Article>) {
+        self.datapersistance = datapersistence
+        super.init(nibName: nil, bundle: nil)
+        self.datapersistance.delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     
     override func loadView() {
         view = savedArticleView
@@ -85,10 +97,8 @@ extension SavedController: SavedArticleCellDelegate {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
-            alertAction in self.deleteArticle(article)
-            
-            //self.savedArticles.remove(at: index)
-            
+            alertAction in
+            self.deleteArticle(article)
             
         }
         
@@ -128,10 +138,8 @@ extension SavedController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // programmatically set up a segue
-        let  detailVC = ArticleViewController()
         let article = savedArticles[indexPath.row]
-        detailVC.article = article
-        detailVC.datapersistance = datapersistance
+        let  detailVC = ArticleViewController(datapersistance, article: article)
         
         navigationController?.pushViewController(detailVC, animated: true)
     }
